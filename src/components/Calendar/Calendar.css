@@ -1,0 +1,39 @@
+.Calendar {
+  width: calc(95%);
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto 0;
+}
+
+.Day-Card {
+  height: 10em;
+  width: 8em;
+  display: flex;
+  flex-direction: column;
+}
+
+.Day-Card__header {
+  background-color: rgb(143, 126, 203);
+  color: #ddd;
+  text-transform: uppercase;
+  justify-content: flex-end;
+  flex: 1;
+  border-radius: 2px 2px 0 0;
+  align-items: center;
+  display: flex;
+  padding-right: 10px;
+}
+
+.Day-Card__body {
+  background-color: #fff;
+  flex: 4;
+  border: 1px solid #bbb;
+}
+
+.no-birthday {
+  background-color: #ddd;
+}
