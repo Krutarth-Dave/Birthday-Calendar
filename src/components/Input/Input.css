@@ -60,3 +60,8 @@
   cursor: pointer;
   user-select: none;
 }
+
+.Button:hover {
+  color: #fff;
+  background-color: rgb(64, 64, 218, 0.9);
+}

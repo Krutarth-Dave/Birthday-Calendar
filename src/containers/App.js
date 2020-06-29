@@ -1,20 +1,26 @@
 import React from 'react';
 import { Title, Calendar, Input } from '../components';
-import inputJSON from './inputJSON';
+import inputJSONFromFile from './inputJSON';
+
 import './App.css';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputJSON: inputJSON,
+      inputJSON: inputJSONFromFile,
       year: '2019',
     };
   }
 
   update = (year, inputJSON) => {
     // Update JSON and year to the Calendar
-    this.setState({ year, inputJSON });
+    if (year) {
+      this.setState({ year });
+    }
+    if (inputJSON) {
+      this.setState({ inputJSON });
+    }
   };
 
   render() {

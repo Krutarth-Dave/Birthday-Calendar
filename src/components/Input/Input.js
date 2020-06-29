@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { parseJSON } from '../../utils';
 import './Input.css';
 
 class Input extends Component {
@@ -11,27 +10,30 @@ class Input extends Component {
     };
   }
 
-  handleYearChange = year => {
+  handleYearChange = event => {
+    let year = parseInt(event.target.value);
+
+    if (isNaN(year)) {
+      year = '';
+    }
+
     this.setState({
-      year,
+      year: year,
     });
   };
 
   updateInputJSON = event => {
     let inputJSON = event.target.value;
-    let newJson = parseJSON(inputJSON);
-    // remove non-printable and other non-valid JSON chars
 
     this.setState({
-      inputJSON: newJson,
+      inputJSON: inputJSON,
     });
   };
 
   update = () => {
     // Update JSON and year to the Calendar
     const { year, inputJSON } = this.state;
-
-    this.props.update(year, JSON.parse(inputJSON));
+    this.props.update(year, inputJSON);
   };
 
   render() {
@@ -51,11 +53,14 @@ class Input extends Component {
             <div className='title'>Year</div>
             <input
               className='year'
-              val={year}
+              value={year}
               onChange={this.handleYearChange}
+              maxLength={4}
+              type='text'
+              pattern='\d*'
             />
           </div>
-          <div className='Button' onClick={this.props.update}>
+          <div className='Button' onClick={this.update}>
             Update
           </div>
         </div>
